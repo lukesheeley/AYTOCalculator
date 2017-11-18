@@ -36,5 +36,6 @@ public class Person {
 	//This is a constructor for the class.  It sets name and pid for a new person.
 	public Person(String name, int pid) {
 		this.name = name;
+		this.pid = pid;
 	}
 }
