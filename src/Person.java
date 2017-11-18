@@ -1,9 +1,9 @@
 
+/**This class represents a person on the show.
+* Each person has a name and a number.  The name is for readability and easy reference.
+* The number for the men references which order they appear in each match-up ceremony listing.
+* The number for both men and women will be used in calculations.*/
 public class Person {
-	/**This class represents a person on the show.
-	 * Each person has a name and a number.  The name is for readability and easy reference.
-	 * The number for the men references which order they appear in each match-up ceremony listing.
-	 * The number for both men and women will be used in calculations.*/
 	
 	//This is the name of a person.
 	private String name;

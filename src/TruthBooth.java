@@ -1,14 +1,14 @@
 
+/**This class represents the results of a truth booth.  The match field contains
+* the match involved and the result field contains a boolean representing the outcome.
+* A result of false means the couple is a no match and a result of true means
+* the couple is a perfect match.*/
 public class TruthBooth {
-	/**This class represents the results of a truth booth.  The match field contains
-	 * the match involved and the result field contains a boolean representing the outcome.
-	 * A result of false means the couple is a no match and a result of true means
-	 * the couple is a perfect match.*/
 	
-	//this is the guy and girl that went into the truth booth.
+	//This is the guy and girl that went into the truth booth.
 	private Match match;
 	
-	//this is the result of the truth booth.
+	//This is the result of the truth booth.
 	private boolean result;
 	
 	/**Getters and setters for the match and result.  Both should be set

@@ -1,7 +1,7 @@
 
+/**This class represents a match between one guy and one girl.  Fields are pretty
+* self explanatory.*/
 public class Match {
-	/**This class represents a match between one guy and one girl.  Fields are pretty
-	 * self explanatory.*/
 	
 	//This is the guy in the match.
 	private Person guy;
