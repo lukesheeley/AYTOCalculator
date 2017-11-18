@@ -10,7 +10,7 @@ public class Match {
 	private Person girl;
 	
 	/**Getters and setters for the guy and girl in the match.  Both should be set
-	 * by constructor and never changed, but setters are included regardless.*/
+	 * by the constructor and never changed, but setters are included regardless.*/
 	//This is a getter method for the guy in the match.
 	public Person getGuy() {
 		return guy;

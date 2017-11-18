@@ -12,7 +12,7 @@ public class Person {
 	private int pid;
 	
 	/**Getters and setters for a person's name and pid.  Name and pid should be set
-	 * by constructor and never changed, but setters are included regardless.*/
+	 * by the constructor and never changed, but setters are included regardless.*/
 	//This is a getter method for a person's name.
 	public String getName() {
 		return name;
