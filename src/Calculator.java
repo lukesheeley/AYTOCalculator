@@ -59,6 +59,8 @@ public class Calculator {
 	}
 	
 	//This is a helper function that will generate the curFMP field.
+	//It generates a unique full matchup pairing for every value of
+	//genCount from 0 to n!-1.
 	public ArrayList<Integer> genCurFMP(int num) {
 		ArrayList<Integer> returnList = new ArrayList<Integer>(this.n);
 		int rem = num;
@@ -74,6 +76,7 @@ public class Calculator {
 		}
 		//System.out.println(options);
 		//System.out.println(returnList);
+		this.genCount++;
 		return returnList;
 	}
 	
@@ -119,7 +122,13 @@ public class Calculator {
 		ArrayList<MatchCer> matchCersTest = new ArrayList<MatchCer>();
 		Calculator calculatorTest = new Calculator(11, truthBoothsTest, matchCersTest); 
 		System.out.println(calculatorTest.facts);
+		System.out.println(calculatorTest.genCount);
 		calculatorTest.genCurFMP(39916799);
+		System.out.println(calculatorTest.genCount);
+		for (int i = 0; i < 39916800; i++) {
+			calculatorTest.genCurFMP(i);
+		}
+		System.out.println("Done.");
 		//calculatorTest.testGenCurFMP();
 	}
 
