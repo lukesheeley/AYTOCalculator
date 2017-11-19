@@ -120,7 +120,7 @@ public class Calculator {
 		Calculator calculatorTest = new Calculator(11, truthBoothsTest, matchCersTest); 
 		System.out.println(calculatorTest.facts);
 		calculatorTest.genCurFMP(39916799);
-		calculatorTest.testGenCurFMP();
+		//calculatorTest.testGenCurFMP();
 	}
 
 }
