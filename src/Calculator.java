@@ -117,6 +117,35 @@ public class Calculator {
 	}
 	*/
 	
+	//This method tests a given full match pairing against the results of a truth booth.
+	//Returns true if the full match pairing passes the truth booth, false if it
+	//contradicts it.	
+	public boolean checkTB(ArrayList<Integer> fmp, TruthBooth tb) {
+		if (tb.getResult()) {
+			if (tb.getMatch().getGirl().getPid() != fmp.get(tb.getMatch().getGuy().getPid())) {
+				return false;
+			}
+		}
+		else {
+			if (tb.getMatch().getGirl().getPid() == fmp.get(tb.getMatch().getGuy().getPid())) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	//This method tests a given full match pairing against the results of a list of truth
+	//booths.  Returns true if the full match pairing passes all truth booths and false if
+	//it contradicts any.
+	public boolean checkTBAll(ArrayList<Integer> fmp, ArrayList<TruthBooth> tbs) {
+		boolean result = true;
+		for (TruthBooth tb : tbs) {
+			result = result && checkTB(fmp, tb);
+		}
+		return result;
+	}
+	
+	
 	public static void main(String[] args) {
 		ArrayList<TruthBooth> truthBoothsTest = new ArrayList<TruthBooth>();
 		ArrayList<MatchCer> matchCersTest = new ArrayList<MatchCer>();
