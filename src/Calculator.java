@@ -151,14 +151,48 @@ public class Calculator {
 		ArrayList<MatchCer> matchCersTest = new ArrayList<MatchCer>();
 		Calculator calculatorTest = new Calculator(11, truthBoothsTest, matchCersTest); 
 		System.out.println(calculatorTest.facts);
-		System.out.println(calculatorTest.genCount);
-		calculatorTest.genCurFMP(39916799);
-		System.out.println(calculatorTest.genCount);
-		for (int i = 0; i < 39916800; i++) {
-			calculatorTest.genCurFMP(i);
-		}
-		System.out.println("Done.");
+		//System.out.println(calculatorTest.genCount);
+		//calculatorTest.genCurFMP(39916799);
+		//System.out.println(calculatorTest.genCount);
+		//for (int i = 0; i < 39916800; i++) {
+		//	calculatorTest.genCurFMP(i);
+		//}
+		//System.out.println("Done.");
 		//calculatorTest.testGenCurFMP();
+		Person guy0 = new Person("Kareem", 0);
+		Person guy1 = new Person("Anthony", 1);
+		Person guy2 = new Person("Malcolm", 2);
+		Person guy3 = new Person("Keith", 3);
+		Person girl0 = new Person("Alivia", 0);
+		Person girl1 = new Person("Geles", 1);
+		Person girl2 = new Person("Nurys", 2);
+		Person girl3 = new Person("Alexis", 3);
+		Match match0 = new Match(guy0, girl0);
+		Match match1 = new Match(guy1, girl1);
+		Match match2 = new Match(guy2, girl2);
+		Match match3 = new Match(guy3, girl3);
+		TruthBooth tb0 = new TruthBooth(match0, true);
+		TruthBooth tb1 = new TruthBooth(match1, false);
+		TruthBooth tb2 = new TruthBooth(match2, false);
+		TruthBooth tb3 = new TruthBooth(match3, false);
+		System.out.println(calculatorTest.genCurFMP(0));
+		System.out.println(calculatorTest.checkTB(calculatorTest.genCurFMP(0), tb0));
+		System.out.println(calculatorTest.checkTB(calculatorTest.genCurFMP(0), tb1));
+		System.out.println(calculatorTest.checkTB(calculatorTest.genCurFMP(0), tb2));
+		System.out.println(calculatorTest.checkTB(calculatorTest.genCurFMP(0), tb3));
+		ArrayList<TruthBooth> tbs = new ArrayList<TruthBooth>();
+		tbs.add(tb0);
+		tbs.add(tb1);
+		tbs.add(tb2);
+		tbs.add(tb3);
+		System.out.println(calculatorTest.checkTBAll(calculatorTest.genCurFMP(0), tbs));
+		int i = 0;
+		while(!calculatorTest.checkTBAll(calculatorTest.genCurFMP(i), tbs)) {
+			i++;
+		}
+		System.out.println(i);
+		System.out.println(calculatorTest.genCurFMP(i));
+		System.out.println(calculatorTest.genCurFMP(367919));
 	}
 
 }
