@@ -145,6 +145,37 @@ public class Calculator {
 		return result;
 	}
 	
+	//This method tests a given full match pairing against the results of a matchup ceremony.
+	//Returns true if the full match pairing passes the matchup ceremony, false if it
+	//contradicts it.
+	public boolean checkMC(ArrayList<Integer> fmp, MatchCer ceremony) {
+		int count = 0;
+		for(int i = 0; i < fmp.size(); i++) {
+			for(Match m : ceremony.getMatchupList()) {
+				if (m.getGuy().getPid() == i && m.getGirl().getPid() == fmp.get(i)) {
+					count++;
+				}
+			}
+		}
+		if(count == ceremony.getBeams()) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	//This method tests a given full match pairing against the results of a list of
+	//matchup ceremonies.  Returns true if the full match pairing passes all matchup
+	//ceremonies and false if it contradicts any.
+	public boolean checkMCAll(ArrayList<Integer> fmp, ArrayList<MatchCer> ceremonies) {
+		boolean result = true;
+		for (MatchCer cer : ceremonies) {
+			result = result && checkMC(fmp, cer);
+		}
+		return result;
+	}
+	
 	
 	public static void main(String[] args) {
 		ArrayList<TruthBooth> truthBoothsTest = new ArrayList<TruthBooth>();
