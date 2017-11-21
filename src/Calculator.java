@@ -176,12 +176,24 @@ public class Calculator {
 		return result;
 	}
 	
+	//This method tests all possible full match pairings against both the given truth
+	//booths and the given matchup ceremonies.  If an individual full match pairing
+	//passes both, perfCount is incremented.
+	public void genPerfCount() {
+		while(genCount < facts.get(facts.size() - 1) * n) {
+			curFMP = genCurFMP(genCount);
+			if (checkTBAll(curFMP, truthBooths) && checkMCAll(curFMP, matchCers)) {
+				perfCount++;
+			}
+		}
+	}
+	
 	
 	public static void main(String[] args) {
 		ArrayList<TruthBooth> truthBoothsTest = new ArrayList<TruthBooth>();
 		ArrayList<MatchCer> matchCersTest = new ArrayList<MatchCer>();
-		Calculator calculatorTest = new Calculator(11, truthBoothsTest, matchCersTest); 
-		System.out.println(calculatorTest.facts);
+		//Calculator calculatorTest = new Calculator(11, truthBoothsTest, matchCersTest); 
+		//System.out.println(calculatorTest.facts);
 		//System.out.println(calculatorTest.genCount);
 		//calculatorTest.genCurFMP(39916799);
 		//System.out.println(calculatorTest.genCount);
@@ -206,24 +218,27 @@ public class Calculator {
 		TruthBooth tb1 = new TruthBooth(match1, false);
 		TruthBooth tb2 = new TruthBooth(match2, false);
 		TruthBooth tb3 = new TruthBooth(match3, false);
-		System.out.println(calculatorTest.genCurFMP(0));
-		System.out.println(calculatorTest.checkTB(calculatorTest.genCurFMP(0), tb0));
-		System.out.println(calculatorTest.checkTB(calculatorTest.genCurFMP(0), tb1));
-		System.out.println(calculatorTest.checkTB(calculatorTest.genCurFMP(0), tb2));
-		System.out.println(calculatorTest.checkTB(calculatorTest.genCurFMP(0), tb3));
+		//System.out.println(calculatorTest.genCurFMP(0));
+		//System.out.println(calculatorTest.checkTB(calculatorTest.genCurFMP(0), tb0));
+		//System.out.println(calculatorTest.checkTB(calculatorTest.genCurFMP(0), tb1));
+		//System.out.println(calculatorTest.checkTB(calculatorTest.genCurFMP(0), tb2));
+		//System.out.println(calculatorTest.checkTB(calculatorTest.genCurFMP(0), tb3));
 		ArrayList<TruthBooth> tbs = new ArrayList<TruthBooth>();
 		tbs.add(tb0);
 		tbs.add(tb1);
 		tbs.add(tb2);
 		tbs.add(tb3);
-		System.out.println(calculatorTest.checkTBAll(calculatorTest.genCurFMP(0), tbs));
-		int i = 0;
-		while(!calculatorTest.checkTBAll(calculatorTest.genCurFMP(i), tbs)) {
-			i++;
-		}
-		System.out.println(i);
-		System.out.println(calculatorTest.genCurFMP(i));
-		System.out.println(calculatorTest.genCurFMP(367919));
+		//System.out.println(calculatorTest.checkTBAll(calculatorTest.genCurFMP(0), tbs));
+		//int i = 0;
+		//while(!calculatorTest.checkTBAll(calculatorTest.genCurFMP(i), tbs)) {
+		//	i++;
+		//}
+		//System.out.println(i);
+		//System.out.println(calculatorTest.genCurFMP(i));
+		//System.out.println(calculatorTest.genCurFMP(367919));
+		Calculator calculatorTest = new Calculator(11, tbs, matchCersTest); 
+		calculatorTest.genPerfCount();
+		System.out.println(calculatorTest.perfCount);
 	}
 
 }
